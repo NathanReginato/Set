@@ -1,0 +1,10 @@
+.object {
+  stroke: purple;
+  stroke-width: 4px;
+}
+
+svg {
+  width: 100px;
+  height: 150px;
+  margin-left: -10px;
+}
