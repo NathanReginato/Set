@@ -5,7 +5,7 @@
 <svg xmlns="http://www.w3.org/2000/svg"
      width="2.77778in" height="4.16667in"
      viewBox="0 0 200 300">
-  <path id="Unnamed"
+  <path class="symbol"
         fill="none" stroke="black" stroke-width="1"
         d="M 100.00,10.00
            C 100.00,10.00 20.00,150.00 20.00,150.00
