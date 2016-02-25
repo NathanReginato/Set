@@ -5,7 +5,7 @@
 /_/  /_/\__,_/_/_/ /_/   /____/\__/\__, /_/\___/
                               /____/          */
 
-body {
+.game-board {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
