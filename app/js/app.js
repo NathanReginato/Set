@@ -90,9 +90,11 @@ $(document).ready(function() {
 
   cards.forEach(function(elem) {
     getCard(elem);
+
   });
 
   
+
   console.log($('.card').attr('id'))
 
 })
