@@ -3,10 +3,25 @@
   / /|_/ / __ `/ / __ \    \__ \/ __/ / / / / _  / /  / / /_/ / / / / /   ___/ / /_/ /_/ / /  __/
 /_/  /_/\__,_/_/_/ /_/   /____/\__/\__, /_/\___/
                                   /____/       */
+body {
+  margin: 0; }
+
 .game-board {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap; }
+
+header {
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin: 0 0 10px 0;
+  box-shadow: 10px 10px 10px #989898; }
+
+.set {
+  font-size: 20px;
+  height: 40px;
+  width: 80px;
+  margin: 5px; }
 
 /* ______               __   _____ __        __
   / ____/___ __________/ /  / ___// /___  __/ /__

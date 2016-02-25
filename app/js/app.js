@@ -111,8 +111,8 @@ var selected = [];
       }
     })
     console.log(selected);
+
+
   });
-
-
 
 })
