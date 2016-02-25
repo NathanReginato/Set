@@ -49,11 +49,11 @@ svg {
   border: 1px solid black;
   display: flex;
   justify-content: center;
+  box-shadow: 10px 10px 10px rgb(152, 152, 152);
 }
 .symbol {
   stroke-width: 5px;
 }
-
 .selected {
-  border: 3px solid red;
+  box-shadow: inset 0 0 20px rgb(93, 138, 198);
 }
