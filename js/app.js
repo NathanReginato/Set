@@ -8,7 +8,10 @@ $(document).ready(function() {
     [0, 0, 0, 0],
     [0, 1, 2, 0],
     [2, 1, 0, 1],
-    [1, 0, 1, 0]
+    [1, 0, 1, 0],
+    [1, 1, 0, 1],
+    [2, 0, 1, 0],
+    [1, 2, 1, 2],
   ]
 
   // Squiggle SVG paths
@@ -25,6 +28,7 @@ $(document).ready(function() {
 
 
   function getCard(card) {
+
     var number = card[0]
     var shape = card[1]
     var shading = card[2]
@@ -32,6 +36,7 @@ $(document).ready(function() {
     var thisShape;
     var thisShading;
     var thisColor;
+    var cardId = '' + number + shape + shading + color;
 
     if (shape === 0) {
       thisShape = oval
@@ -72,19 +77,22 @@ $(document).ready(function() {
 
 
 
-    $('.game-board').append('<div class="card"></div>')
-    $('.card').addClass(thisColor)
-    $('.card').addClass(thisShading)
+    $('.game-board').append('<div id="' + cardId + '" class="card"></div>')
+    $('#' + cardId).addClass(thisColor)
+    $('#' + cardId).addClass(thisShading)
 
     while (number >= 0) {
-      $('.card').append(thisShape)
+      $('#' + cardId).append(thisShape)
       number--
     }
 
-    console.log(number);
-
   }
 
-  getCard(cards[5])
+  cards.forEach(function(elem) {
+    getCard(elem);
+  });
+
+  
+  console.log($('.card').attr('id'))
 
 })
