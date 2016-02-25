@@ -95,13 +95,24 @@ $(document).ready(function() {
 
   // Click event
 
-  var selected = [];
+var selected = [];
 
   $('.card').on('click', function(e) {
-    console.log($(this).attr('id'));
+    selected = [];
+    if ($(this).hasClass('selected')) {
+      $(this).removeClass('selected')
+    } else {
+      $(this).addClass('selected')
+    }
 
-    
-    $(this).addClass('selected')
+    $('.card').each(function() {
+      if ($(this).hasClass('selected')) {
+        selected.push($(this).attr('id'))
+      }
+    })
+    console.log(selected);
   });
+
+
 
 })
