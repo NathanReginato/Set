@@ -37,7 +37,7 @@ $(document).ready(function() {
 
   function draw(howManyCards) {
     for (var i = 0; i < howManyCards; i++) {
-      getCard(cards[i]);
+      getCard(cards[0]);
       cards.shift()
     };
   };
@@ -110,7 +110,6 @@ $(document).ready(function() {
 
   $('.card').on('click', function(e) {
     selected = [];
-    draw(3)
     console.log(cards);
     $(this).hasClass('selected') ? $(this).removeClass('selected') : $(this).addClass('selected')
     $('.card').each(function() {
@@ -121,8 +120,6 @@ $(document).ready(function() {
     if (selected.length > 2) {
       if (validate(selected)) {
         console.log('set!')
-        $('.card').remove()
-        draw(3);
       } else {
         selected = [];
         console.log('not set!')
@@ -148,5 +145,5 @@ $(document).ready(function() {
     }
     return testArr[0] && testArr[1] && testArr[2] && testArr[3];
   }
-
+console.log(cards);
 })
