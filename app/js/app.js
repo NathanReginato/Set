@@ -93,6 +93,17 @@ $(document).ready(function() {
     }
   }
 
+  function newGame() {
+    deckGenerator()
+    draw(12);
+  }
+
+  //Invocation
+
+  newGame()
+
+  //----------------------------------------------------------------------------
+
   // Select cards
 
   var selected = [];
@@ -125,12 +136,4 @@ $(document).ready(function() {
     return testArr[0] && testArr[1] && testArr[2] && testArr[3];
   }
 
-  function newGame() {
-    draw(12);
-    deckGenerator()
-  }
-
-  //Invocation
-
-  newGame()
 })
