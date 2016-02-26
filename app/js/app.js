@@ -110,7 +110,7 @@ $(document).ready(function() {
 
   $('.card').on('click', function(e) {
     selected = [];
-    console.log(cards);
+
     $(this).hasClass('selected') ? $(this).removeClass('selected') : $(this).addClass('selected')
     $('.card').each(function() {
       if ($(this).hasClass('selected')) {
@@ -119,11 +119,10 @@ $(document).ready(function() {
     })
     if (selected.length > 2) {
       if (validate(selected)) {
-        console.log('set!')
+      $('.selected').remove()
+      draw(3)
       } else {
         selected = [];
-        console.log('not set!')
-        console.log(selected);
         if ($('.card').hasClass('selected')) {
           $('.card').removeClass('selected')
         }
@@ -145,5 +144,4 @@ $(document).ready(function() {
     }
     return testArr[0] && testArr[1] && testArr[2] && testArr[3];
   }
-console.log(cards);
 })
