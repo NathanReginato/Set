@@ -9,7 +9,8 @@ body {
 .game-board {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  height: 100vh; }
 
 header {
   text-align: center;
