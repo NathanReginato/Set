@@ -32,61 +32,51 @@ $(document).ready(function() {
   //Makes cards based on array
 
   function getCard(card) {
-
-    var number = card[0]
-    var shape = card[1]
-    var shading = card[2]
-    var color = card[3]
     var thisShape;
     var thisShading;
     var thisColor;
-    var cardId = '' + number + shape + shading + color;
+    var cardId = '' + card[0] + card[1] + card[2] + card[3];
 
-    // Use switch statements?
-
-    if (shape === 0) {
-      thisShape = oval
+    switch (card[1]) {
+      case 0:
+        thisShape = diamond
+        break;
+      case 1:
+        thisShape = squiggle
+        break;
+      default:
+        thisShape = oval
     }
 
-    if (shape === 1) {
-      thisShape = diamond
+    switch (card[2]) {
+      case 0:
+        thisShading = 'empty'
+        break;
+      case 1:
+        thisShading = 'line'
+        break;
+      default:
+        thisShading = ''
     }
 
-    if (shape === 2) {
-      thisShape = squiggle
-    }
-
-    if (shading === 0) {
-      thisShading = ''
-    }
-
-    if (shading === 1) {
-      thisShading = 'line'
-    }
-
-    if (shading === 2) {
-      thisShading = 'empty'
-    }
-
-    if (color === 0) {
-      thisColor = 'red'
-    }
-
-    if (color === 1) {
-      thisColor = 'green'
-    }
-
-    if (color === 2) {
-      thisColor = 'purple'
+    switch (card[3]) {
+      case 0:
+        thisColor = 'purple'
+        break;
+      case 1:
+        thisColor = 'green'
+        break;
+      default:
+        thisColor = 'red'
     }
 
     $('.game-board').append('<div id="' + cardId + '" class="card"></div>')
     $('#' + cardId).addClass(thisColor)
     $('#' + cardId).addClass(thisShading)
 
-    while (number >= 0) {
+    while (card[0] >= 0) {
       $('#' + cardId).append(thisShape)
-      number--
+      card[0]--
     }
   }
 
