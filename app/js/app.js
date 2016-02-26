@@ -17,13 +17,17 @@ $(document).ready(function() {
   var cards = []
 
   function deckGenerator() {
-  var attribute1 = 0;
-  var attribute2 = 0;
-  var attribute3 = 0;
-  var attribute4 = 0;
-
+    for (var i = 0; i < 3; i++) {
+      for (var j = 0; j < 3; j++) {
+        for (var k = 0; k < 3; k++) {
+          for (var l = 0; l < 3; l++) {
+            cards.push([i, j, k, l])
+          }
+        }
+      }
+    }
   }
-
+  deckGenerator()
 
   //Makes cards based on array
 
