@@ -86,7 +86,7 @@ $(document).ready(function() {
     getCard(elem);
   });
 
-  // Click event
+  // Select cards
 
   var selected = [];
 
