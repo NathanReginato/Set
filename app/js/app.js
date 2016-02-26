@@ -26,6 +26,7 @@ $(document).ready(function() {
         }
       }
     }
+    cards.sort(function() { return 0.5 - Math.random() });
   }
   deckGenerator()
 
@@ -106,15 +107,15 @@ $(document).ready(function() {
   // Set validation
 
   function validate(sudoSet) {
-    var testArr = []
+    var testArr = [];
 
     for (var i = 0; i < 4; i++) {
-      var x = parseInt(sudoSet[0][i])
-      var y = parseInt(sudoSet[1][i])
-      var z = parseInt(sudoSet[2][i])
+      var x = parseInt(sudoSet[0][i]);
+      var y = parseInt(sudoSet[1][i]);
+      var z = parseInt(sudoSet[2][i]);
 
-      testArr.push(x !== y && x !== z && y !== z || x === y && x === z && y === z ? true : false)
+      testArr.push(x !== y && x !== z && y !== z || x === y && x === z && y === z ? true : false);
     }
-    return testArr[0] && testArr[1] && testArr[2] && testArr[3] ? true : false;
+    return testArr[0] && testArr[1] && testArr[2] && testArr[3];
   }
 })
