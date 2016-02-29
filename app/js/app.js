@@ -14,8 +14,6 @@ $(document).ready(function() {
 
   // Make deck and shuffle
 
-  //Global
-
   var cards = []
 
   function deckGenerator() {
@@ -108,12 +106,14 @@ $(document).ready(function() {
     return testArr[0] && testArr[1] && testArr[2] && testArr[3];
   }
 
+  // Create a new Game
+
   function newGame() {
     deckGenerator()
     draw(12);
   }
 
-  //Invocation
+  //Game invocation
 
   newGame()
 
@@ -137,7 +137,9 @@ $(document).ready(function() {
     if (selected.length === 3) {
       if (validate(selected)) {
         $('.selected').remove()
-        draw(3)
+        if ($('.game-board').children().length === 9) {
+          draw(3)
+        }
       } else {
         selected = [];
         if ($('.card').hasClass('selected')) {
@@ -148,10 +150,8 @@ $(document).ready(function() {
   });
 
   $('.no-more-sets').on('click', function() {
-    console.log($('.cards'));
-    draw(3)
+    if ($('.game-board').children().length !== 15) {
+      draw(3)
+    }
   });
-
-
-
 });
