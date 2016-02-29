@@ -93,43 +93,6 @@ $(document).ready(function() {
     }
   }
 
-  function newGame() {
-    deckGenerator()
-    draw(12);
-  }
-
-  //Invocation
-
-  newGame()
-
-  //----------------------------------------------------------------------------
-
-  // Select cards
-
-  var selected = [];
-
-  $('.card').on('click', function(e) {
-    selected = [];
-
-    $(this).hasClass('selected') ? $(this).removeClass('selected') : $(this).addClass('selected')
-    $('.card').each(function() {
-      if ($(this).hasClass('selected')) {
-        selected.push($(this).attr('id'))
-      }
-    })
-    if (selected.length > 2) {
-      if (validate(selected)) {
-      $('.selected').remove()
-      draw(3)
-      } else {
-        selected = [];
-        if ($('.card').hasClass('selected')) {
-          $('.card').removeClass('selected')
-        }
-      }
-    }
-  });
-
   // Set validation
 
   function validate(sudoSet) {
@@ -144,4 +107,51 @@ $(document).ready(function() {
     }
     return testArr[0] && testArr[1] && testArr[2] && testArr[3];
   }
-})
+
+  function newGame() {
+    deckGenerator()
+    draw(12);
+  }
+
+  //Invocation
+
+  newGame()
+
+  //----------------------------------------------------------------------------
+
+  // Click listeners
+
+  // Select cards
+
+  var selected = [];
+
+  $('.game-board').delegate('.card', 'click', function() {
+    selected = [];
+
+    $(this).hasClass('selected') ? $(this).removeClass('selected') : $(this).addClass('selected')
+    $('.card').each(function() {
+      if ($(this).hasClass('selected')) {
+        selected.push($(this).attr('id'))
+      }
+    })
+    if (selected.length === 3) {
+      if (validate(selected)) {
+        $('.selected').remove()
+        draw(3)
+      } else {
+        selected = [];
+        if ($('.card').hasClass('selected')) {
+          $('.card').removeClass('selected')
+        }
+      }
+    }
+  });
+
+  $('.no-more-sets').on('click', function() {
+    console.log($('.cards'));
+    draw(3)
+  });
+
+
+
+});
