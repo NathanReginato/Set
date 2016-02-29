@@ -12,24 +12,24 @@ $(document).ready(function() {
       $('.start-game').append('<div class="players"><div class="2p">2 Players</div><div class="3p">3 Players</div><div class="4p">4 Players</div></div>')
 
       $('.2p').on('click', function() {
-        gameMulti(2)
+        gameMultiScore(2)
       })
 
       $('.3p').on('click', function() {
-        gameMulti(3)
+        gameMultiScore(3)
       })
 
       $('.4p').on('click', function() {
-        gameMulti(4)
+        gameMultiScore(4)
       })
     });
 
-    function gameMulti(numberOfPlayers) {
+
+    function gameMultiScore(numberOfPlayers) {
       $('footer').empty()
       $('.start-game').empty()
       for (var i = 1; i < numberOfPlayers + 1; i++) {
         $('footer').append('<div>Player ' + i + '</div>')
-        
       }
       newGame()
     }
@@ -39,6 +39,4 @@ $(document).ready(function() {
     })
 
   })()
-
-
 });
