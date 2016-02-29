@@ -1,0 +1,24 @@
+
+.game-board {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+header {
+  text-align: center;
+  margin: 0 0 10px 0;
+  box-shadow: 10px 10px 10px rgb(152, 152, 152);
+}
+
+.set {
+  font-size: 20px;
+  height: 40px;
+  width: 80px;
+  margin: 5px;
+}
+
+.no-more-sets {
+  font-size: 50px;
+}
