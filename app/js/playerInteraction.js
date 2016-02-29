@@ -1,9 +1,44 @@
-$(document).ready(function(){
-  $('.start-game').append('<div class="start-body"><div class="new-game">New Game</div><div class="tutorial">Tutorial</div><div class="about">About</div></div>');
+$(document).ready(function() {
 
-  $('.new-game').on('click', function() {
+  // Add main menu
+
+  (function mainMenu() {
     $('.start-game').empty()
-    $('.start-game').append('<div class="form-body"><form class="the-form"><fieldset><input class="pname" type="text"><input type="submit" value="Submit"></fieldset></form></div>')
-  });
-  // newGame()
+    $('.start-game').append('<div class="start-body"><div class="new-game">New Game</div><div class="tutorial">Tutorial</div><div class="about">About</div></div>');
+
+
+    $('.new-game').on('click', function() {
+      $('.start-game').empty()
+      $('.start-game').append('<div class="players"><div class="2p">2 Players</div><div class="3p">3 Players</div><div class="4p">4 Players</div></div>')
+
+      $('.2p').on('click', function() {
+        gameMulti(2)
+      })
+
+      $('.3p').on('click', function() {
+        gameMulti(3)
+      })
+
+      $('.4p').on('click', function() {
+        gameMulti(4)
+      })
+    });
+
+    function gameMulti(numberOfPlayers) {
+      $('footer').empty()
+      $('.start-game').empty()
+      for (var i = 1; i < numberOfPlayers + 1; i++) {
+        $('footer').append('<div>Player ' + i + '</div>')
+        
+      }
+      newGame()
+    }
+
+    $('button').on('click', function() {
+      mainMenu()
+    })
+
+  })()
+
+
 });

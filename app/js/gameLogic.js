@@ -107,6 +107,7 @@
   // Create a new Game
 
   function newGame() {
+    $('.game-board').empty()
     deckGenerator()
     draw(12);
   }
