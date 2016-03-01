@@ -25,9 +25,9 @@
         }
       }
     }
-    cards.sort(function() {
-      return 0.5 - Math.random()
-    });
+    // cards.sort(function() {
+    //   return 0.5 - Math.random()
+    // });
   }
 
   //Draw cards
@@ -113,6 +113,31 @@
     draw(12);
   }
 
+  // Check for at least one possible Set
+
+  function possibleSet() {
+    var setsInPlay = [];
+    var testCase = [];
+
+    $('.card').each(function() {
+      setsInPlay.push($(this).attr('id'))
+    });
+
+    for (var i = 0; i < setsInPlay.length; i++) {
+      for (var j = i + 1; j < setsInPlay.length; j++) {
+        for (var k = j + 1; k < setsInPlay.length; k++) {
+          testCase = [];
+          testCase.push(setsInPlay[i], setsInPlay[j], setsInPlay[k])
+          if (validate(testCase)) {
+            console.log(testCase);
+            return true
+          }
+        }
+      }
+    }
+    return false
+  }
+
   //----------------------------------------------------------------------------
 
   // Click listeners
@@ -143,10 +168,10 @@
         }
       }
     }
-  });
-
-  $('.no-more-sets').on('click', function() {
-    if ($('.game-board').children().length !== 15) {
+    if (!possibleSet() && $('.game-board').children().length !== 15) {
       draw(3)
+    }
+    if (!possibleSet() && $('.game-board').children().length === 15) {
+      console.log(game over);
     }
   });
