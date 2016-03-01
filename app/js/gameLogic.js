@@ -12,19 +12,19 @@
 
   // Make deck and shuffle
 
-  var cards = []
+  var cards = [[0,0,0,0],[1,1,1,1],[2,2,2,0]]
 
   function deckGenerator() {
-    cards = [];
-    for (var i = 0; i < 3; i++) {
-      for (var j = 0; j < 3; j++) {
-        for (var k = 0; k < 3; k++) {
-          for (var l = 0; l < 3; l++) {
-            cards.push([i, j, k, l])
-          }
-        }
-      }
-    }
+    // cards = [];
+    // for (var i = 0; i < 3; i++) {
+    //   for (var j = 0; j < 3; j++) {
+    //     for (var k = 0; k < 3; k++) {
+    //       for (var l = 0; l < 3; l++) {
+    //         cards.push([i, j, k, l])
+    //       }
+    //     }
+    //   }
+    // }
     // cards.sort(function() {
     //   return 0.5 - Math.random()
     // });
@@ -168,10 +168,7 @@
         }
       }
     }
-    if (!possibleSet() && $('.game-board').children().length !== 15) {
-      draw(3)
-    }
-    if (!possibleSet() && $('.game-board').children().length === 15) {
-      console.log(game over);
+    if (!possibleSet()) {
+      console.log('game over');
     }
   });

@@ -29,11 +29,13 @@ $(document).ready(function() {
       $('.start-game').empty()
       $('.start-game').append('<form><fieldset><legend>Player Names</legend><input class="start" type="submit" value="Start"></fieldset></form>')
       for (var i = 1; i <= numberOfPlayers; i++) {
-        $('fieldset').prepend('<label>Player ' + i + '</label><input class="p' + i + 'name" type="text">')
+        $('fieldset').prepend('<label>Player ' + i + '</label><input class="p' + i + 'name" type="text" required>')
 
       }
       $('.start').on('click', function(e) {
         e.preventDefault()
+        $('footer').empty()
+
         var p1 = $('.p1name').val()
         var p2 = $('.p2name').val()
         var p3 = $('.p3name').val()
@@ -43,7 +45,8 @@ $(document).ready(function() {
         $('footer').append('<div>' + p2 + '</div>')
         $('footer').append('<div>' + p3 + '</div>')
         $('footer').append('<div>' + p4 + '</div>')
-
+        
+        $('.start-game').empty()
         newGame()
       })
     }
