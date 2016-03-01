@@ -1,6 +1,10 @@
 $(document).ready(function() {
 
   // Add main menu
+  var p1;
+  var p2;
+  var p3;
+  var p4;
 
   (function mainMenu() {
     $('.start-game').empty()
@@ -36,29 +40,30 @@ $(document).ready(function() {
         e.preventDefault()
         $('footer').empty()
 
-        var p1 = $('.p1name').val()
-        var p2 = $('.p2name').val()
-        var p3 = $('.p3name').val()
-        var p4 = $('.p4name').val()
+        p1 = $('.p1name').val()
+        p2 = $('.p2name').val()
+        p3 = $('.p3name').val()
+        p4 = $('.p4name').val()
 
         $('footer').append('<div>' + p1 + '</div>')
         $('footer').append('<div>' + p2 + '</div>')
         $('footer').append('<div>' + p3 + '</div>')
         $('footer').append('<div>' + p4 + '</div>')
-        
+
         $('.start-game').empty()
         newGame()
       })
     }
-
-
-
-
-
 
     $('button').on('click', function() {
       mainMenu()
     })
 
   })()
+
+  $('.set').on('click', function() {
+    $('.screen').remove()
+      
+
+  })
 });
