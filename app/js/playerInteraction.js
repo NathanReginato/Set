@@ -1,15 +1,8 @@
 $(document).ready(function() {
 
-  // Add main menu
-  var p1;
-  var p2;
-  var p3;
-  var p4;
-
   (function mainMenu() {
     $('.start-game').empty()
     $('.start-game').append('<div class="start-body"><div class="new-game">New Game</div><div class="tutorial">Tutorial</div><div class="about">About</div></div>');
-
 
     $('.new-game').on('click', function() {
       $('.start-game').empty()
@@ -29,6 +22,9 @@ $(document).ready(function() {
     });
 
     function gameMultiScore(numberOfPlayers) {
+
+      var nameArr = []
+
       $('footer').empty()
       $('.start-game').empty()
       $('.start-game').append('<form><fieldset><legend>Player Names</legend><input class="start" type="submit" value="Start"></fieldset></form>')
@@ -40,30 +36,58 @@ $(document).ready(function() {
         e.preventDefault()
         $('footer').empty()
 
-        p1 = $('.p1name').val()
-        p2 = $('.p2name').val()
-        p3 = $('.p3name').val()
-        p4 = $('.p4name').val()
+        p1name = $('.p1name').val()
+        p2name = $('.p2name').val()
+        p3name = $('.p3name').val()
+        p4name = $('.p4name').val()
 
-        $('footer').append('<div>' + p1 + '</div>')
-        $('footer').append('<div>' + p2 + '</div>')
-        $('footer').append('<div>' + p3 + '</div>')
-        $('footer').append('<div>' + p4 + '</div>')
+        nameArr = [p1name, p2name, p3name, p4name]
+
+        for (var i = 0; i < numberOfPlayers; i++) {
+          $('footer').append('<h4>' + nameArr[i] + ' <span class="p' + (i + 1) + 'score"></span></h4>')
+        }
 
         $('.start-game').empty()
         newGame()
       })
+
+
+      $('button').on('click', function() {
+        mainMenu()
+      })
+
+      $('.set').hide()
+
+      $('.set').on('click', function() {
+
+        $('.start-game').empty()
+        $('.start-game').append('<h1>Who saw it?</h1>')
+
+        for (var i = 0; i < numberOfPlayers; i++) {
+          $('.start-game').append('<div class="ip1">' + nameArr[i] + '</div>')
+        }
+
+        $('.ip1').on('click', function() {
+          driver = 0
+          $('.start-game').empty()
+          $('.screen').remove()
+        });
+        $('.ip2').on('click', function() {
+          driver = 1
+          $('.start-game').empty()
+          $('.screen').remove()
+        });
+        $('.ip3').on('click', function() {
+          driver = 2
+          $('.start-game').empty()
+          $('.screen').remove()
+        });
+        $('.ip4').on('click', function() {
+          driver = 3
+          $('.start-game').empty()
+          $('.screen').remove()
+        });
+      })
     }
-
-    $('button').on('click', function() {
-      mainMenu()
-    })
-
   })()
-
-  $('.set').on('click', function() {
-    $('.screen').remove()
-      
-
-  })
 });

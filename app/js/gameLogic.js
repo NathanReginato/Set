@@ -33,11 +33,14 @@
   //Draw cards
 
   function draw(howManyCards) {
-    for (var i = 0; i < howManyCards; i++) {
-      getCard(cards[0]);
-      cards.shift()
-    };
-    end()
+    if (cards.length > 0) {
+      for (var i = 0; i < howManyCards; i++) {
+        getCard(cards[0]);
+        cards.shift()
+      };
+    }
+    isGameOver()
+    drawExtra()
   };
 
   //Get cards based on array
@@ -112,6 +115,7 @@
     $('.game-board').empty()
     deckGenerator()
     draw(12);
+    $('.set').show()
   }
 
   // Check for at least one possible Set
@@ -119,7 +123,6 @@
   function possibleSet() {
     var setsInPlay = [];
     var testCase = [];
-
     $('.card').each(function() {
       setsInPlay.push($(this).attr('id'))
     });
@@ -130,7 +133,6 @@
           testCase = [];
           testCase.push(setsInPlay[i], setsInPlay[j], setsInPlay[k])
           if (validate(testCase)) {
-            console.log(testCase);
             return true
           }
         }
@@ -141,12 +143,29 @@
 
   //----------------------------------------------------------------------------
 
-  var p1Score = 0;
-  var p2Score = 0;
-  var p3Score = 0;
-  var p4Score = 0;
+  var scores = [0,0,0,0]
+  var p1name;
+  var p2name;
+  var p3name;
+  var p4name;
+  var driver
+
+  function appenedScores() {
+    $('.p1score').empty()
+    $('.p1score').append(scores[0])
+
+    $('.p2score').empty()
+    $('.p2score').append(scores[1])
+
+    $('.p3score').empty()
+    $('.p3score').append(scores[2])
+
+    $('.p4score').empty()
+    $('.p4score').append(scores[3])
+  }
 
   // Click listeners
+
 
   // Select cards
 
@@ -163,22 +182,40 @@
     })
     if (selected.length === 3) {
       if (validate(selected)) {
+        scores[driver] += 3
+        appenedScores()
         $('.selected').remove()
         if ($('.game-board').children().length === 9) {
           draw(3)
         }
       } else {
         selected = [];
+        scores[driver] -= 1
+        appenedScores()
         if ($('.card').hasClass('selected')) {
           $('.card').removeClass('selected')
         }
       }
       $('.container').prepend('<div class="screen"></div>')
     }
+    isGameOver()
   });
 
-  function end() {
-    if (!possibleSet()) {
+
+  function drawExtra() {
+    if (!possibleSet() && cards.length > 0) {
       draw(3);
+    }
+  }
+
+  function whoWon() {
+    var best = 0;
+    return p1name
+  }
+
+  function isGameOver() {
+    if (cards.length === 0 && !possibleSet()) {
+      $('.start-game').empty()
+      $('.start-game').append('<h1>Game Over!</h1><div class="winner">' + whoWon() + ' Won!</div>')
     }
   }
