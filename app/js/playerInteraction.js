@@ -31,7 +31,6 @@ $(document).ready(function() {
       for (var i = 1; i < numberOfPlayers + 1; i++) {
         $('footer').append('<div>Player ' + i + '</div>')
       }
-      newGame()
     }
 
     $('button').on('click', function() {
