@@ -1,11 +1,9 @@
-console.log("facebook");
-
 $.ajaxSetup({
   cache: true
 });
 
 function updateStatusCallback() {
-  alert('Status updated!!');
+  console.log('Status updated!!');
 }
 
 $.getScript('//connect.facebook.net/en_US/sdk.js', function() {
@@ -16,17 +14,11 @@ $.getScript('//connect.facebook.net/en_US/sdk.js', function() {
   $('#loginbutton,#feedbutton').removeAttr('disabled');
   FB.getLoginStatus(updateStatusCallback);
 
-$(document).delegate('.share', 'click', function() {
+  $(document).delegate('.share', 'click', function() {
     console.log('clicked');
     FB.ui({
-      method: 'share_open_graph',
-      action_type: 'og.likes',
-      action_properties: JSON.stringify({
-        object: 'https://developers.facebook.com/docs/',
-      })
-    }, function(response) {
-      // Debug response (optional)
-      console.log(response);
-    });
+      method: 'share',
+      href: 'http://myappsetgame.s3-website-us-west-2.amazonaws.com/',
+    }, function(response) {});
   })
 });
