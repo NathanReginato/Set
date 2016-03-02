@@ -12,35 +12,35 @@
 
   // Make deck and shuffle
 
-  var cards = []
+  var cards = [[1, 1, 1, 1],
+  [2, 2, 2, 2],
+  [0, 0, 0, 0],
+  [0, 1, 1, 1],
+  [1, 1, 1, 0],
+  [1, 1, 0, 1],
+  [0, 2, 2, 0],
+  [1, 2, 2, 0],
+  [2, 2, 2, 0],
+  [0, 2, 2, 1],
+  [2, 2, 2, 1],
+  [1, 2, 2, 1]]
 
-  // [1, 1, 1, 1],
-  // [2, 2, 2, 2],
-  // [0, 0, 0, 0],
-  // [0, 1, 1, 1],
-  // [1, 1, 1, 0],
-  // [1, 1, 0, 1],
-  // [0, 2, 2, 0],
-  // [1, 2, 2, 0],
-  // [2, 2, 2, 0],
-  // [0, 2, 2, 1],
-  // [2, 2, 2, 1],
-  // [1, 2, 2, 1]
+
 
   function deckGenerator() {
-    cards = [];
-    for (var i = 0; i < 3; i++) {
-      for (var j = 0; j < 3; j++) {
-        for (var k = 0; k < 3; k++) {
-          for (var l = 0; l < 3; l++) {
-            cards.push([i, j, k, l])
-          }
-        }
-      }
-    }
-    cards.sort(function() {
-      return 0.5 - Math.random()
-    });
+    // cards = [];
+    // for (var i = 0; i < 3; i++) {
+    //   for (var j = 0; j < 3; j++) {
+    //     for (var k = 0; k < 3; k++) {
+    //       for (var l = 0; l < 3; l++) {
+    //         cards.push([i, j, k, l])
+    //       }
+    //     }
+    //   }
+    // }
+    // cards.sort(function() {
+    //   return 0.5 - Math.random()
+    // });
   }
 
   //Draw cards
@@ -127,7 +127,7 @@
   function newGame() {
     $('.game-board').empty()
     deckGenerator()
-    draw(6);
+    draw(12);
     $('.set').show()
   }
 
@@ -258,6 +258,6 @@
   function isGameOver() {
     if (cards.length === 0 && !possibleSet()) {
       $('.start-game').empty()
-      $('.start-game').append('<div class="end-container"><h1>Game Over!</h1><div class="winner">' + whoWon() + ' Won!</div></div>')
+      $('.start-game').append('<div class="end-container"><h1>Game Over!</h1><div class="winner">' + whoWon() + ' Won!</div><button class="share">Share</button></div>')
     }
   }
