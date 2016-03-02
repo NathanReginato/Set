@@ -114,7 +114,7 @@
   function newGame() {
     $('.game-board').empty()
     deckGenerator()
-    draw(12);
+    draw(15);
     $('.set').show()
   }
 
@@ -133,6 +133,7 @@
           testCase = [];
           testCase.push(setsInPlay[i], setsInPlay[j], setsInPlay[k])
           if (validate(testCase)) {
+            console.log(testCase);
             return true
           }
         }
@@ -209,7 +210,7 @@
   }
 
   function whoWon() {
-    var best = 0;
+    var best;
     return p1name
   }
 

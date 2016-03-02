@@ -1,0 +1,38 @@
+.game-board {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #d3bfff; }
+
+header {
+  text-align: center;
+  margin: 0 0 10px 0;
+  box-shadow: 10px 10px 10px #989898; }
+
+.start-game {
+  position: absolute;
+  text-align: center;
+  z-index: 5000; }
+
+.start-body, .players, form {
+  height: 300px;
+  background-color: #ffd195; }
+
+footer {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  bottom: 0;
+  background-color: #e36c99;
+  width: 100%;
+  height: 5%; }
+
+.set {
+  font-size: 20px;
+  height: 40px;
+  width: 80px;
+  margin: 5px; }
+
+h4 {
+  margin: 1%; }
