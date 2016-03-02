@@ -93,14 +93,16 @@ $(document).ready(function() {
         });
       })
     }
+
     $('.highscore').on('click', function() {
       $('.start-game').empty()
+      $('.start-game').append('<div class="hscore-container"><h1>High Scores!</h1></div>')
       highPage()
       for (var i = 0; i < 5; i++) {
         if (showScore[i]) {
-          $('.start-game').append('<div>' + showScore[i] + '<div>')
+          $('.hscore-container').append('<div>' + showScore[i] + '<div>')
         } else {
-          $('.start-game').append('<div>-<div>')
+          $('.hscore-container').append('<div>-<div>')
         }
       }
     })
