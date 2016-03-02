@@ -12,22 +12,29 @@
 
   // Make deck and shuffle
 
-  var cards = []
+  var cards = [
+    [1, 1, 1, 1],
+    [2, 2, 2, 2],
+    [0, 0, 0, 0],
+    [0, 1, 1, 1],
+    [1, 1, 1, 0],
+    [1, 1, 0, 1]
+  ]
 
   function deckGenerator() {
-    cards = [];
-    for (var i = 0; i < 3; i++) {
-      for (var j = 0; j < 3; j++) {
-        for (var k = 0; k < 3; k++) {
-          for (var l = 0; l < 3; l++) {
-            cards.push([i, j, k, l])
-          }
-        }
-      }
-    }
-    cards.sort(function() {
-      return 0.5 - Math.random()
-    });
+    // cards = [];
+    // for (var i = 0; i < 3; i++) {
+    //   for (var j = 0; j < 3; j++) {
+    //     for (var k = 0; k < 3; k++) {
+    //       for (var l = 0; l < 3; l++) {
+    //         cards.push([i, j, k, l])
+    //       }
+    //     }
+    //   }
+    // }
+    // cards.sort(function() {
+    //   return 0.5 - Math.random()
+    // });
   }
 
   //Draw cards
@@ -114,7 +121,7 @@
   function newGame() {
     $('.game-board').empty()
     deckGenerator()
-    draw(12);
+    draw(6);
     $('.set').show()
   }
 
@@ -133,7 +140,6 @@
           testCase = [];
           testCase.push(setsInPlay[i], setsInPlay[j], setsInPlay[k])
           if (validate(testCase)) {
-            console.log(testCase);
             return true
           }
         }
@@ -144,12 +150,14 @@
 
   //----------------------------------------------------------------------------
 
-  var scores = [0,0,0,0]
+  var scores = [0, 0, 0, 0]
   var p1name;
   var p2name;
   var p3name;
   var p4name;
-  var driver
+  var driver;
+  var highScore;
+  var scoreObj = {};
 
   function appenedScores() {
     $('.p1score').empty()
@@ -164,6 +172,7 @@
     $('.p4score').empty()
     $('.p4score').append(scores[3])
   }
+
 
   // Click listeners
 
@@ -186,7 +195,7 @@
         scores[driver] += 3
         appenedScores()
         $('.selected').remove()
-        if ($('.game-board').children().length === 9) {
+        if ($('.game-board').children().length <= 9) {
           draw(3)
         }
       } else {
@@ -210,8 +219,18 @@
   }
 
   function whoWon() {
-    var best;
-    return p1name
+    var best = Math.max.apply(null, scores)
+    var winners = [];
+    var winStr;
+    scores.forEach(function(elem, index) {
+      var player = this["p" + (index + 1) + "name"]
+      if (elem === best) {
+        winners.push(player)
+        localStorage.setItem(scoreObj, ["" + player + "", elem])
+      }
+    })
+    winStr = winners.join(' and ')
+    return winStr;
   }
 
   function isGameOver() {
