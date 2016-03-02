@@ -1,1 +1,1 @@
-requirejs(["js/gameLogic", "js/playerInteraction"], function(util) {});
+requirejs(["js/gameLogic", "js/playerInteraction", "js/facebook"], function(util) {});
