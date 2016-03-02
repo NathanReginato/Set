@@ -64,7 +64,7 @@ $(document).ready(function() {
         $('.start-game').append('<h1>Who saw it?</h1>')
 
         for (var i = 0; i < numberOfPlayers; i++) {
-          $('.start-game').append('<div class="ip1">' + nameArr[i] + '</div>')
+          $('.start-game').append('<div class="ip' + (i + 1) + '">' + nameArr[i] + '</div>')
         }
 
         $('.ip1').on('click', function() {
