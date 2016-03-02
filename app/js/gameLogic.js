@@ -114,7 +114,7 @@
   function newGame() {
     $('.game-board').empty()
     deckGenerator()
-    draw(15);
+    draw(12);
     $('.set').show()
   }
 

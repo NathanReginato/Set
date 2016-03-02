@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+
+
   (function mainMenu() {
     $('.start-game').empty()
     $('.start-game').append('<div class="start-body"><div class="new-game">New Game</div><div class="tutorial">Tutorial</div><div class="about">About</div></div>');
@@ -56,15 +58,13 @@ $(document).ready(function() {
         mainMenu()
       })
 
-      $('.set').hide()
-
       $('.set').on('click', function() {
 
         $('.start-game').empty()
-        $('.start-game').append('<h1>Who saw it?</h1>')
+        $('.start-game').append('<div class="whosaw"><h1>Who saw it?</h1></div>')
 
         for (var i = 0; i < numberOfPlayers; i++) {
-          $('.start-game').append('<div class="ip' + (i + 1) + '">' + nameArr[i] + '</div>')
+          $('.whosaw').append('<div class="ip' + (i + 1) + '">' + nameArr[i] + '</div>')
         }
 
         $('.ip1').on('click', function() {
@@ -90,4 +90,6 @@ $(document).ready(function() {
       })
     }
   })()
+
+  $('.set').hide()
 });
