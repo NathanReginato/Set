@@ -4,11 +4,15 @@ $(document).ready(function() {
 
   (function mainMenu() {
     $('.start-game').empty()
-    $('.start-game').append('<div class="start-body"><div class="new-game">New Game</div><div class="tutorial">Tutorial</div><div class="about">About</div></div>');
+    $('.start-game').append('<div class="start-body"><div class="new-game">New Game</div><div class="tutorial">Tutorial</div><div class="highscore">High score</div></div>');
 
     $('.new-game').on('click', function() {
       $('.start-game').empty()
-      $('.start-game').append('<div class="players"><div class="2p">2 Players</div><div class="3p">3 Players</div><div class="4p">4 Players</div></div>')
+      $('.start-game').append('<div class="players"><div class="1p">1 Player</div><div class="2p">2 Players</div><div class="3p">3 Players</div><div class="4p">4 Players</div></div>')
+
+      $('.1p').on('click', function() {
+        gameMultiScore(1)
+      })
 
       $('.2p').on('click', function() {
         gameMultiScore(2)
@@ -89,7 +93,17 @@ $(document).ready(function() {
         });
       })
     }
+    $('.highscore').on('click', function() {
+      $('.start-game').empty()
+      highPage()
+      for (var i = 0; i < 5; i++) {
+        if (showScore[i]) {
+          $('.start-game').append('<div>' + showScore[i] + '<div>')
+        } else {
+          $('.start-game').append('<div>-<div>')
+        }
+      }
+    })
   })()
-
   $('.set').hide()
 });

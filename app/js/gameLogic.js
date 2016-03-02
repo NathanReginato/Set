@@ -18,7 +18,10 @@
     [0, 0, 0, 0],
     [0, 1, 1, 1],
     [1, 1, 1, 0],
-    [1, 1, 0, 1]
+    [1, 1, 0, 1],
+    [0, 2, 2, 0],
+    [1, 2, 2, 0],
+    [2, 2, 2, 0]
   ]
 
   function deckGenerator() {
@@ -157,7 +160,8 @@
   var p4name;
   var driver;
   var highScore;
-  var scoreObj = {};
+  var showScore = [];
+  var scoreObj = {}
 
   function appenedScores() {
     $('.p1score').empty()
@@ -222,15 +226,30 @@
     var best = Math.max.apply(null, scores)
     var winners = [];
     var winStr;
+
     scores.forEach(function(elem, index) {
       var player = this["p" + (index + 1) + "name"]
       if (elem === best) {
         winners.push(player)
-        localStorage.setItem(scoreObj, ["" + player + "", elem])
+        if (window.localStorage[player] < elem) {
+          localStorage.setItem(player, elem)
+        }
       }
     })
     winStr = winners.join(' and ')
     return winStr;
+  }
+
+  function highPage() {
+    for (var score in window.localStorage) {
+      showScore.push([score, window.localStorage[score]])
+    }
+
+    console.log(showScore);
+    showScore.sort(function(a, b) {
+      return b[1] - a[1]
+    })
+    console.log(showScore);
   }
 
   function isGameOver() {
