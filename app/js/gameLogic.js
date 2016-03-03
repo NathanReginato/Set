@@ -126,9 +126,10 @@
 
   function newGame() {
     $('.game-board').empty()
+    $('.set').show()
     deckGenerator()
     draw(12);
-    $('.set').show()
+    setLocalNames()
   }
 
   // Check for at least one possible Set
@@ -247,15 +248,25 @@
     for (var score in window.localStorage) {
       showScore.push([score, window.localStorage[score]])
     }
-    
+
     showScore.sort(function(a, b) {
       return b[1] - a[1]
+    })
+  }
+
+  function setLocalNames() {
+    nameArr = [p1name, p2name, p3name, p4name]
+    nameArr.forEach(function(elem) {
+      if (elem !== undefined) {
+        localStorage.setItem(elem, 0)
+      }
     })
   }
 
   function isGameOver() {
     if (cards.length === 0 && !possibleSet()) {
       $('.start-game').empty()
-      $('.start-game').append('<div class="end-container"><h1>Game Over!</h1><div class="winner">' + whoWon() + ' Won!</div><button class="share">Share</button></div>')
+      $('.start-game').append('<div class="end-container"><h1>Game Over!</h1><div class="winner">' + whoWon() + ' Won!</div><button class="share">Share</button></div>');
+      $('.set').hide();
     }
   }
