@@ -167,6 +167,8 @@
   var showScore = [];
   var scoreObj = {}
 
+  //Append scores to footer
+
   function appenedScores() {
     $('.p1score').empty()
     $('.p1score').append(scores[0])
@@ -180,9 +182,6 @@
     $('.p4score').empty()
     $('.p4score').append(scores[3])
   }
-
-
-  // Click listeners
 
 
   // Select cards
@@ -219,12 +218,15 @@
     isGameOver()
   });
 
+  // Account for no possible sets and draw more cards
 
   function drawExtra() {
     if (!possibleSet() && cards.length > 0) {
       draw(3);
     }
   }
+
+  // Check highest score and add to localStorage
 
   function whoWon() {
     var best = Math.max.apply(null, scores)
@@ -244,6 +246,8 @@
     return winStr;
   }
 
+  //Get localStorage data and append to score sheet
+
   function highPage() {
     for (var score in window.localStorage) {
       showScore.push([score, window.localStorage[score]])
@@ -254,6 +258,8 @@
     })
   }
 
+  //Put name placeholders in localStorage
+
   function setLocalNames() {
     nameArr = [p1name, p2name, p3name, p4name]
     nameArr.forEach(function(elem) {
@@ -263,6 +269,8 @@
     })
   }
 
+  //Check if the game is over and create end game elements
+  
   function isGameOver() {
     if (cards.length === 0 && !possibleSet()) {
       $('.start-game').empty()

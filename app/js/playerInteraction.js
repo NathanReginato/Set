@@ -1,10 +1,12 @@
 $(document).ready(function() {
 
-
+  //Append main menu
 
   (function mainMenu() {
     $('.start-game').empty()
     $('.start-game').append('<div class="start-body"><div class="new-game">New Game</div><div class="tutorial">Tutorial</div><div class="highscore">High score</div></div>');
+
+    //Get player names
 
     $('.new-game').on('click', function() {
       $('.start-game').empty()
@@ -35,33 +37,27 @@ $(document).ready(function() {
       $('.start-game').empty()
       $('.start-game').append('<form><fieldset><legend>Player Names</legend><input class="start" type="submit" value="Start"></fieldset></form>')
       for (var i = 1; i <= numberOfPlayers; i++) {
-        $('fieldset').prepend('<label>Player ' + i + '</label><input class="p' + i + 'name" type="text" value="Player' + i + '" name="player">')
+        $('fieldset').prepend('<label>Player ' + i + '</label><input class="p' + i + 'name" type="text" name="player" required>')
 
       }
 
-      $('.start').on('click', function(e) {
+      $('form').submit(function(e) {
         e.preventDefault()
         $('footer').empty()
 
-        p1name = $('.p1name').val()
-        p2name = $('.p2name').val()
-        p3name = $('.p3name').val()
-        p4name = $('.p4name').val()
+        nameArr = [$('.p1name').val(), $('.p2name').val(), $('.p3name').val(), $('.p4name').val()]
 
-        nameArr = [p1name, p2name, p3name, p4name]
+        //Append names to footer
 
         for (var i = 0; i < numberOfPlayers; i++) {
-          $('footer').append('<h4>' + nameArr[i] + ' <span class="p' + (i + 1) + 'score"></span></h4>')
+          $('footer').append('<h4>' + nameArr[i] + ': <span class="p' + (i + 1) + 'score"></span></h4>')
         }
 
         $('.start-game').empty()
         newGame()
-
       })
 
-      $('button').on('click', function() {
-        mainMenu()
-      })
+      //Set!
 
       $('.set').on('click', function() {
 
@@ -95,6 +91,14 @@ $(document).ready(function() {
       })
     }
 
+    //Main menu click event
+
+    $('.main-menu').on('click', function() {
+      mainMenu()
+    })
+
+    //highScore page
+
     $('.highscore').on('click', function() {
       $('.start-game').empty()
       $('.start-game').append('<div class="hscore-container"><h1>High Scores!</h1></div>')
@@ -107,6 +111,8 @@ $(document).ready(function() {
         }
       }
     })
+
   })()
+
   $('.set').hide()
 });
