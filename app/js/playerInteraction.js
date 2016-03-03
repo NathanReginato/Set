@@ -10,11 +10,18 @@ $(document).ready(function() {
 
     $('.new-game').on('click', function() {
       $('.start-game').empty()
-      $('.start-game').append('<div class="players"><div class="1p">1 Player</div><div class="2p">2 Players</div><div class="3p">3 Players</div><div class="4p">4 Players</div></div>')
+      $('.start-game').append('<div class="players"></div>')
 
-      $('.1p').on('click', function() {
-        gameMultiScore(1)
-      })
+      //Player select
+
+      for (var i = 2; i < 5; i++) {
+        $('.players').append('<div class="' + i + 'p">' + i + ' Players</div>')
+      }
+
+
+      // $('.1p').on('click', function() {
+      //   gameMultiScore(1)
+      // })
 
       $('.2p').on('click', function() {
         gameMultiScore(2)
@@ -35,15 +42,19 @@ $(document).ready(function() {
 
       $('footer').empty()
       $('.start-game').empty()
-      $('.start-game').append('<form><fieldset><legend>Player Names</legend><input class="start" type="submit" value="Start"></fieldset></form>')
-      for (var i = 1; i <= numberOfPlayers; i++) {
-        $('fieldset').prepend('<label>Player ' + i + '</label><input class="p' + i + 'name" type="text" name="player" required>')
+      $('.start-game').append('<form class="names-form"><fieldset><legend>Player Names</legend><input class="start" type="submit" value="Start"></fieldset></form>')
 
+      for (var i = 1; i <= numberOfPlayers; i++) {
+        $('fieldset').prepend('<input class="p' + i + 'name" type="text" name="player" placeholder="Player' + i + '" required>')
       }
 
-      $('form').submit(function(e) {
+      //Form
+
+      $('.names-form').submit(function(e) {
         e.preventDefault()
         $('footer').empty()
+
+        //Get name values
 
         p1name = $('.p1name').val()
         p2name = $('.p2name').val()
@@ -117,7 +128,6 @@ $(document).ready(function() {
       }
     })
 
+    $('.set').hide()
   })()
-
-  $('.set').hide()
 });

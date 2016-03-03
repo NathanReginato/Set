@@ -196,28 +196,28 @@
     $(this).hasClass('selected') ? $(this).removeClass('selected') : $(this).addClass('selected')
     $('.card').each(function() {
       if ($(this).hasClass('selected')) {
-        selected.push($(this).attr('id'))
+        selected.push($(this).attr('id'));
       }
     })
     if (selected.length === 3) {
       if (validate(selected)) {
         scores[driver] += 3
-        appenedScores()
-        $('.selected').remove()
+        appenedScores();
+        $('.selected').remove();
         if ($('.game-board').children().length <= 9) {
-          draw(3)
+          draw(3);
         }
       } else {
         selected = [];
-        scores[driver] -= 1
+        scores[driver] -= 1;
         appenedScores()
         if ($('.card').hasClass('selected')) {
-          $('.card').removeClass('selected')
+          $('.card').removeClass('selected');
         }
       }
-      $('.container').prepend('<div class="screen"></div>')
+      $('.container').prepend('<div class="screen"></div>');
     }
-    isGameOver()
+    isGameOver();
   });
 
   // Account for no possible sets and draw more cards
@@ -231,20 +231,20 @@
   // Check highest score and add to localStorage
 
   function whoWon() {
-    var best = Math.max.apply(null, scores)
+    var best = Math.max.apply(null, scores);
     var winners = [];
     var winStr;
 
     scores.forEach(function(elem, index) {
       var player = this["p" + (index + 1) + "name"]
       if (elem === best) {
-        winners.push(player)
+        winners.push(player);
         if (window.localStorage[player] < elem) {
-          localStorage.setItem(player, elem)
+          localStorage.setItem(player, elem);
         }
       }
-    })
-    winStr = winners.join(' and ')
+    });
+    winStr = winners.join(' and ');
     return winStr;
   }
 
@@ -256,8 +256,8 @@
     }
 
     showScore.sort(function(a, b) {
-      return b[1] - a[1]
-    })
+      return b[1] - a[1];
+    });
   }
 
   //Put name placeholders in localStorage
@@ -271,20 +271,19 @@
         for (var score in window.localStorage) {
           if (score === elem) {
             console.log('break');
-            break loop1
+            break loop1;
           }
         }
-        localStorage.setItem(elem, 0)
+        localStorage.setItem(elem, 0);
       }
-    })
-
+    });
   }
 
   //Check if the game is over and create end game elements
 
   function isGameOver() {
     if (cards.length === 0 && !possibleSet()) {
-      $('.start-game').empty()
+      $('.start-game').empty();
       $('.start-game').append('<div class="end-container"><h1>Game Over!</h1><div class="winner">' + whoWon() + ' Won!</div><button class="share">Share</button></div>');
       $('.set').hide();
     }
