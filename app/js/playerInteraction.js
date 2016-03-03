@@ -3,6 +3,8 @@ $(document).ready(function() {
   //Append main menu
 
   (function mainMenu() {
+    console.log($(window).width());
+
     $('.start-game').empty()
     $('.start-game').append('<div class="start-body"><a href="#"><div class="new-game">New Game</div></a><a href="#"><div class="tutorial">Tutorial</div></a><a href="#"><div class="highscore">High score</div></a></div>');
 
@@ -143,5 +145,8 @@ $(document).ready(function() {
     $('.set').hide()
     $('.not-flash').hide()
     $('.flash').hide()
+
+
   })()
+
 });

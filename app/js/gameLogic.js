@@ -12,9 +12,7 @@
 
   // Make deck and shuffle
 
-  var cards = [
-
-  ]
+  var cards = []
 
   // [1, 1, 1, 1],
   // [2, 2, 2, 2],
@@ -204,7 +202,7 @@
     })
     if (selected.length === 3) {
       if (validate(selected)) {
-        $('.flash').fadeIn().fadeOut();
+        $('.flash').fadeIn(200).fadeOut(1500);
         scores[driver] += 3
         appenedScores();
         $('.selected').remove();
@@ -212,7 +210,7 @@
           draw(3);
         }
       } else {
-        $('.not-flash').fadeIn().fadeOut();
+        $('.not-flash').fadeIn(200).fadeOut(1500);
         selected = [];
         scores[driver] -= 1;
         appenedScores()
