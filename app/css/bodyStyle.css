@@ -1,12 +1,8 @@
-* {
-  text-decoration: none; }
-
 header {
   text-align: center;
   display: flex;
   justify-content: center;
   height: 40px;
-  background-color: #a3ffa1;
   box-shadow: 10px 10px 10px #989898; }
 
 footer {
@@ -16,7 +12,7 @@ footer {
   display: flex;
   bottom: 0;
   justify-content: space-around;
-  background-color: #e9acff; }
+  background-color: #e7e7e7; }
 
 .main-menu {
   position: fixed;
@@ -26,7 +22,7 @@ footer {
   height: 40px;
   width: 40px;
   border: 1px solid black;
-  background-color: #ff95ee; }
+  background-color: white; }
   .main-menu ul {
     padding: 2px 0 0 0;
     margin: 0; }
@@ -36,9 +32,21 @@ footer {
       height: 5px;
       border-radius: 3px;
       margin: 0 0 3px 4px;
-      background-color: #fcff7e; }
+      background-color: purple; }
+
+.game-board {
+  margin: 10px 0 0 0; }
 
 .set {
-  font-size: 20px;
+  padding: 3.5px 0;
+  border-radius: 0 0 5px 5px;
+  margin: 0;
+  font-size: 30px;
   width: 100px;
-  background-color: #65e3ff; }
+  background-color: purple; }
+
+a {
+  color: white; }
+
+a:hover {
+  color: white; }

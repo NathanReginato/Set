@@ -42,7 +42,7 @@ $(document).ready(function() {
 
       $('footer').empty()
       $('.start-game').empty()
-      $('.start-game').append('<form class="names-form"><fieldset><legend>Player Names</legend><input class="start" type="submit" value="Start"></fieldset></form>')
+      $('.start-game').append('<form class="names-form"><fieldset><legend><h3>Player Names</h3></legend><input class="start" type="submit" value="Start"></fieldset></form>')
 
       for (var i = 1; i <= numberOfPlayers; i++) {
         $('fieldset').prepend('<input class="p' + i + 'name" type="text" name="player" placeholder="Player' + i + '" >')
