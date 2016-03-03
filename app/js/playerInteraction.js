@@ -4,7 +4,7 @@ $(document).ready(function() {
 
   (function mainMenu() {
     $('.start-game').empty()
-    $('.start-game').append('<div class="start-body"><div class="new-game">New Game</div><div class="tutorial">Tutorial</div><div class="highscore">High score</div></div>');
+    $('.start-game').append('<div class="start-body"><a href="#"><div class="new-game">New Game</div></a><a href="#"><div class="tutorial">Tutorial</div></a><a href="#"><div class="highscore">High score</div></a></div>');
 
     //Get player names
 
@@ -15,7 +15,7 @@ $(document).ready(function() {
       //Player select
 
       for (var i = 2; i < 5; i++) {
-        $('.players').append('<div class="' + i + 'p">' + i + ' Players</div>')
+        $('.players').append('<a href="#"><div class="' + i + 'p">' + i + ' Players</div></a>')
       }
 
 
@@ -81,7 +81,7 @@ $(document).ready(function() {
         $('.start-game').append('<div class="whosaw"><h1>Who saw it?</h1></div>')
 
         for (var i = 0; i < numberOfPlayers; i++) {
-          $('.whosaw').append('<div class="ip' + (i + 1) + '">' + nameArr[i] + '</div>')
+          $('.whosaw').append('<a href="#"><div class="ip' + (i + 1) + '">' + nameArr[i] + '</div></a>')
         }
 
         $('.ip1').on('click', function() {
