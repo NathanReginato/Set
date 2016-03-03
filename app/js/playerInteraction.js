@@ -45,7 +45,12 @@ $(document).ready(function() {
         e.preventDefault()
         $('footer').empty()
 
-        nameArr = [$('.p1name').val(), $('.p2name').val(), $('.p3name').val(), $('.p4name').val()]
+        p1name = $('.p1name').val()
+        p2name = $('.p2name').val()
+        p3name = $('.p3name').val()
+        p4name = $('.p4name').val()
+
+        nameArr = [p1name, p2name, p3name, p4name]
 
         //Append names to footer
 

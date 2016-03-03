@@ -12,18 +12,20 @@
 
   // Make deck and shuffle
 
-  var cards = [[1, 1, 1, 1],
-  [2, 2, 2, 2],
-  [0, 0, 0, 0],
-  [0, 1, 1, 1],
-  [1, 1, 1, 0],
-  [1, 1, 0, 1],
-  [0, 2, 2, 0],
-  [1, 2, 2, 0],
-  [2, 2, 2, 0],
-  [0, 2, 2, 1],
-  [2, 2, 2, 1],
-  [1, 2, 2, 1]]
+  var cards = [
+    [1, 1, 1, 1],
+    [2, 2, 2, 2],
+    [0, 0, 0, 0],
+    [0, 1, 1, 1],
+    [1, 1, 1, 0],
+    [1, 1, 0, 1],
+    [0, 2, 2, 0],
+    [1, 2, 2, 0],
+    [2, 2, 2, 0],
+    [0, 2, 2, 1],
+    [2, 2, 2, 1],
+    [1, 2, 2, 1]
+  ]
 
 
 
@@ -262,15 +264,24 @@
 
   function setLocalNames() {
     nameArr = [p1name, p2name, p3name, p4name]
+
     nameArr.forEach(function(elem) {
+      loop1:
       if (elem !== undefined) {
+        for (var score in window.localStorage) {
+          if (score === elem) {
+            console.log('break');
+            break loop1
+          }
+        }
         localStorage.setItem(elem, 0)
       }
     })
+
   }
 
   //Check if the game is over and create end game elements
-  
+
   function isGameOver() {
     if (cards.length === 0 && !possibleSet()) {
       $('.start-game').empty()
