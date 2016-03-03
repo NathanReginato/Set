@@ -60,3 +60,26 @@ a {
 a:hover {
   color: white;
 }
+.not-flash, .flash {
+  text-align: center;
+  position: absolute;
+  width: 40%;
+  margin: 20% 30%;
+  font-size: 500%;
+  z-index: 9999;
+  border-radius: 20px;
+  border: 1px solid black;
+  background-color: rgb(255, 255, 255)
+}
+
+.s {
+  color: red;
+}
+
+.e {
+  color: purple;
+}
+
+.t {
+  color: green;
+}

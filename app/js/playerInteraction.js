@@ -72,6 +72,7 @@ $(document).ready(function() {
 
         $('.start-game').empty()
         newGame()
+        $('.screen').show()
       })
 
       //Set!
@@ -140,5 +141,7 @@ $(document).ready(function() {
     });
 
     $('.set').hide()
+    $('.not-flash').hide()
+    $('.flash').hide()
   })()
 });
