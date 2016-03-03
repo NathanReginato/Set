@@ -45,8 +45,10 @@ $(document).ready(function() {
       $('.start-game').append('<form class="names-form"><fieldset><legend>Player Names</legend><input class="start" type="submit" value="Start"></fieldset></form>')
 
       for (var i = 1; i <= numberOfPlayers; i++) {
-        $('fieldset').prepend('<input class="p' + i + 'name" type="text" name="player" placeholder="Player' + i + '" required>')
+        $('fieldset').prepend('<input class="p' + i + 'name" type="text" name="player" placeholder="Player' + i + '" >')
       }
+
+      //required
 
       //Form
 
@@ -87,22 +89,26 @@ $(document).ready(function() {
         $('.ip1').on('click', function() {
           driver = 0
           $('.start-game').empty()
-          $('.screen').remove()
+          $('.screen').hide()
+          $('.main-menu').hide()
         });
         $('.ip2').on('click', function() {
           driver = 1
           $('.start-game').empty()
-          $('.screen').remove()
+          $('.screen').hide()
+          $('.main-menu').hide()
         });
         $('.ip3').on('click', function() {
           driver = 2
           $('.start-game').empty()
-          $('.screen').remove()
+          $('.screen').hide()
+          $('.main-menu').hide()
         });
         $('.ip4').on('click', function() {
           driver = 3
           $('.start-game').empty()
-          $('.screen').remove()
+          $('.screen').hide()
+          $('.main-menu').hide()
         });
       })
     }
@@ -110,7 +116,7 @@ $(document).ready(function() {
     //Main menu click event
 
     $('.main-menu').on('click', function() {
-      $('.container').prepend('<div class="screen"></div>');
+      $('.screen').show();
       mainMenu()
     })
 

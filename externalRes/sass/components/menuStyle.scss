@@ -1,7 +1,11 @@
 .start-body {
-  font-size: 60px;
-  margin: 5px;
+  position: fixed;
+  z-index: 9000;
+  font-size: 75px;
+  width: 40%;
+  margin: 0 30%;
   text-align: center;
+  background-color: rgb(247, 168, 147);
   box-shadow: 10px 10px 10px rgb(152, 152, 152);
 }
 

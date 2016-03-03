@@ -1,22 +1,28 @@
 .game-board {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
-  height: 100vh; }
-
-header {
-  text-align: center;
-  margin: 0 0 10px 0;
-  box-shadow: 10px 10px 10px #989898; }
-
-.set {
-  font-size: 20px;
-  height: 40px;
-  width: 80px;
-  margin: 5px; }
+  height: 65vh; }
 
 .no-more-sets {
   font-size: 50px; }
+
+svg {
+  width: 62px;
+  height: 93px;
+  margin-left: -2px;
+  margin-right: -2px; }
+
+.card {
+  padding: 20px;
+  border-radius: 10px;
+  margin: 8px;
+  width: 240px;
+  height: 135px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  box-shadow: 10px 10px 10px #989898; }
 
 /* ______               __   _____ __        __
   / ____/___ __________/ /  / ___// /___  __/ /__
@@ -47,23 +53,6 @@ header {
 .empty path {
   fill: none; }
 
-svg {
-  width: 100px;
-  height: 150px;
-  margin-left: -2px;
-  margin-right: -2px; }
-
-.card {
-  padding: 40px;
-  border-radius: 20px;
-  margin: 15px;
-  width: 100px;
-  min-width: 280px;
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  box-shadow: 10px 10px 10px #989898; }
-
 .symbol {
   stroke-width: 5px; }
 
@@ -71,9 +60,13 @@ svg {
   box-shadow: inset 0 0 20px #5d8ac6; }
 
 .start-body {
-  font-size: 60px;
-  margin: 5px;
+  position: fixed;
+  z-index: 9000;
+  font-size: 75px;
+  width: 40%;
+  margin: 0 30%;
   text-align: center;
+  background-color: #f7a893;
   box-shadow: 10px 10px 10px #989898; }
 
 .screen {
@@ -81,3 +74,48 @@ svg {
   z-index: 100;
   height: 100vh;
   width: 100vw; }
+
+* {
+  text-decoration: none; }
+
+header {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  background-color: #a3ffa1;
+  box-shadow: 10px 10px 10px #989898; }
+
+footer {
+  height: 40px;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  justify-content: space-around;
+  background-color: #e9acff; }
+
+.main-menu {
+  position: fixed;
+  padding: 0;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+  background-color: #ff95ee; }
+  .main-menu ul {
+    padding: 2px 0 0 0;
+    margin: 0; }
+    .main-menu ul li {
+      list-style: none;
+      width: 30px;
+      height: 5px;
+      border-radius: 3px;
+      margin: 0 0 3px 4px;
+      background-color: #fcff7e; }
+
+.set {
+  font-size: 20px;
+  width: 100px;
+  background-color: #65e3ff; }

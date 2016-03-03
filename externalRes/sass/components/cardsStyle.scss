@@ -34,23 +34,6 @@
 .empty path {
   fill: none;
 }
-svg {
-  width: 100px;
-  height: 150px;
-  margin-left: -2px;
-  margin-right: -2px;
-}
-.card {
-  padding: 40px;
-  border-radius: 20px;
-  margin: 15px;
-  width: 100px;
-  min-width: 280px;
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  box-shadow: 10px 10px 10px rgb(152, 152, 152);
-}
 .symbol {
   stroke-width: 5px;
 }
