@@ -6,13 +6,23 @@
   margin: 10px 30%;
   padding: 30px;
   text-align: center;
-  background-color: purple;
+  background: rgba(255,66,75,1);
+  background: -moz-linear-gradient(-45deg, rgba(255,66,75,1) 0%, rgba(255,66,75,1) 27%, rgba(0,0,0,1) 27%, rgba(28,28,28,1) 61%, rgba(30,163,3,1) 61%, rgba(30,163,3,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255,66,75,1)), color-stop(27%, rgba(255,66,75,1)), color-stop(27%, rgba(0,0,0,1)), color-stop(61%, rgba(28,28,28,1)), color-stop(61%, rgba(30,163,3,1)), color-stop(100%, rgba(30,163,3,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(255,66,75,1) 0%, rgba(255,66,75,1) 27%, rgba(0,0,0,1) 27%, rgba(28,28,28,1) 61%, rgba(30,163,3,1) 61%, rgba(30,163,3,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(255,66,75,1) 0%, rgba(255,66,75,1) 27%, rgba(0,0,0,1) 27%, rgba(28,28,28,1) 61%, rgba(30,163,3,1) 61%, rgba(30,163,3,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(255,66,75,1) 0%, rgba(255,66,75,1) 27%, rgba(0,0,0,1) 27%, rgba(28,28,28,1) 61%, rgba(30,163,3,1) 61%, rgba(30,163,3,1) 100%);
+  background: linear-gradient(135deg, rgba(255,66,75,1) 0%, rgba(255,66,75,1) 27%, rgba(0,0,0,1) 27%, rgba(28,28,28,1) 61%, rgba(30,163,3,1) 61%, rgba(30,163,3,1) 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff424b', endColorstr='#1ea303', GradientType=1 );
   box-shadow: 10px 10px 10px rgb(152, 152, 152);
 }
-
-.players, form, .whosaw, .hscore-container {
+.players,
+form,
+.whosaw,
+.hscore-container,
+.end-container {
   margin: 10px 30% 0;
-  padding: 30px 0 0 0;
+  padding: 30px 0 0;
   position: fixed;
   z-index: 9000;
   font-size: 30px;
@@ -22,27 +32,35 @@
   background-color: purple;
   box-shadow: 10px 10px 10px rgb(152, 152, 152);
 }
-
 legend {
   color: white;
 }
-
-.whosaw, .hscore-container {
+.whosaw,
+.hscore-container,
+.end-container {
   color: white;
 }
-
+.end-container {
+  button {
+    padding: 0 40px;
+    margin: 30px;
+    background-color: rgb(59, 89, 152);
+    border-radius: 5px;
+  }
+}
 input {
   margin: 10px;
 }
-
-.ip1, .ip2, .ip3, .ip4 {
+.ip1,
+.ip2,
+.ip3,
+.ip4 {
   margin: 20px 100px;
   background-color: white;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   color: black;
 }
-
 .screen {
   position: fixed;
   z-index: 100;
