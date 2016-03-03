@@ -110,6 +110,7 @@ $(document).ready(function() {
     //Main menu click event
 
     $('.main-menu').on('click', function() {
+      $('.container').prepend('<div class="screen"></div>');
       mainMenu()
     })
 
@@ -127,6 +128,11 @@ $(document).ready(function() {
         }
       }
     })
+
+    $('.screen').on('click', function() {
+      $('.start-game').empty()
+      $('.set').show()
+    });
 
     $('.set').hide()
   })()
