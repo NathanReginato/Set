@@ -35,9 +35,10 @@ $(document).ready(function() {
       $('.start-game').empty()
       $('.start-game').append('<form><fieldset><legend>Player Names</legend><input class="start" type="submit" value="Start"></fieldset></form>')
       for (var i = 1; i <= numberOfPlayers; i++) {
-        $('fieldset').prepend('<label>Player ' + i + '</label><input class="p' + i + 'name" type="text" required>')
+        $('fieldset').prepend('<label>Player ' + i + '</label><input class="p' + i + 'name" type="text" value="Player' + i + '" name="player">')
 
       }
+
       $('.start').on('click', function(e) {
         e.preventDefault()
         $('footer').empty()
@@ -55,7 +56,9 @@ $(document).ready(function() {
 
         $('.start-game').empty()
         newGame()
+
       })
+
 
 
       $('button').on('click', function() {

@@ -247,12 +247,10 @@
     for (var score in window.localStorage) {
       showScore.push([score, window.localStorage[score]])
     }
-
-    console.log(showScore);
+    
     showScore.sort(function(a, b) {
       return b[1] - a[1]
     })
-    console.log(showScore);
   }
 
   function isGameOver() {
