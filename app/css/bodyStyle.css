@@ -1,3 +1,6 @@
+body {
+  background: black; }
+
 header {
   text-align: center;
   display: flex;
