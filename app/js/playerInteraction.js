@@ -72,22 +72,24 @@ $(document).ready(function() {
         }
 
         $('.start-game').empty()
-        newGame()
         $('.screen').show()
+
+        newGame()
       })
 
       //Set!
 
+      // $(document).on("keypress", function(e) {
+      //   if (e.which == 32) {
+      //     e.preventDefault()
+      //     console.log('yay');
+      //     setPress()
+      //   }
+      // });
+
       $('.set').on('click', function() {
         setPress()
       })
-
-      $(document).keypress(function(e) {
-        if (e.which == 32) {
-          e.preventDefault()
-          console.log('yay');
-        }
-      });
 
       function setPress() {
         $('.start-game').empty()
