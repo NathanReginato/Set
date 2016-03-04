@@ -1,0 +1,9 @@
+{
+  "firebase": "set-nathan-reginato",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
