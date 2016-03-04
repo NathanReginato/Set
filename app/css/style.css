@@ -25,11 +25,6 @@ svg {
   background-color: white;
   box-shadow: 10px 10px 10px #989898; }
 
-/* ______               __   _____ __        __
-  / ____/___ __________/ /  / ___// /___  __/ /__
- / /   / __ `/ ___/ __  /   \__ \/ __/ / / / / _ / /___/ /_/ / /  / /_/ /   ___/ / /_/ /_/ / /  __/
-\____/\__,_/_/   \__,_/   /____/\__/\__, /_/\___/
-                                   /____/         */
 .hatch {
   display: none; }
 
@@ -109,7 +104,7 @@ form,
   font-size: 50px; }
 
 legend {
-  height: 75  px; }
+  height: 75px; }
   legend h3 {
     color: white;
     background-color: purple;
@@ -211,7 +206,6 @@ footer {
 
 .set {
   padding: 3.5px 0;
-  border-radius: 0 0 5px 5px;
   margin: 0;
   font-size: 30px;
   width: 100px;

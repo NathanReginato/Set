@@ -12,38 +12,36 @@
 
   // Make deck and shuffle
 
-  var cards = [
-    [1, 1, 1, 1],
-    [2, 2, 2, 2],
-    [0, 0, 0, 0],
-    [0, 1, 1, 1],
-    [1, 1, 1, 0],
-    [1, 1, 0, 1],
-    [0, 2, 2, 0],
-    [1, 2, 2, 0],
-    [2, 2, 2, 0],
-    [0, 2, 2, 1],
-    [2, 2, 2, 1],
-    [1, 2, 2, 1]
-  ]
+  var cards = [];
 
-
+  // [1, 1, 1, 1],
+  // [2, 2, 2, 2],
+  // [0, 0, 0, 0],
+  // [0, 1, 1, 1],
+  // [1, 1, 1, 0],
+  // [1, 1, 0, 1],
+  // [0, 2, 2, 0],
+  // [1, 2, 2, 0],
+  // [2, 2, 2, 0],
+  // [0, 2, 2, 1],
+  // [2, 2, 2, 1],
+  // [1, 2, 2, 1]
 
 
   function deckGenerator() {
-    // cards = [];
-    // for (var i = 0; i < 3; i++) {
-    //   for (var j = 0; j < 3; j++) {
-    //     for (var k = 0; k < 3; k++) {
-    //       for (var l = 0; l < 3; l++) {
-    //         cards.push([i, j, k, l])
-    //       }
-    //     }
-    //   }
-    // }
-    // cards.sort(function() {
-    //   return 0.5 - Math.random()
-    // });
+    cards = [];
+    for (var i = 0; i < 3; i++) {
+      for (var j = 0; j < 3; j++) {
+        for (var k = 0; k < 3; k++) {
+          for (var l = 0; l < 3; l++) {
+            cards.push([i, j, k, l])
+          }
+        }
+      }
+    }
+    cards.sort(function() {
+      return 0.5 - Math.random()
+    });
   }
 
   //Draw cards
@@ -257,6 +255,7 @@
   //Get localStorage data and append to score sheet
 
   function highPage() {
+    showScore = [];
     for (var score in window.localStorage) {
       showScore.push([score, window.localStorage[score]])
     }

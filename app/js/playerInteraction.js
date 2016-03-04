@@ -3,10 +3,9 @@ $(document).ready(function() {
   //Append main menu
 
   (function mainMenu() {
-    console.log($(window).width());
 
     $('.start-game').empty()
-    $('.start-game').append('<div class="start-body"><div class="p-padding"><a href="#"><div class="new-game">New Game</div></a><a href="#"><div class="tutorial">Tutorial</div></a><a href="#"><div class="highscore">High score</div></a></div></div>');
+    $('.start-game').append('<div class="start-body"><div class="p-padding"><a href="#"><div class="new-game">New Game</div></a><a href="http://www.setgame.com/sites/default/files/instructions/SET%20INSTRUCTIONS%20-%20ENGLISH.pdf" target="_blank"><div class="tutorial">How to play</div></a><a href="#"><div class="highscore">High score</div></a></div></div>');
 
     //Get player names
 
@@ -45,7 +44,7 @@ $(document).ready(function() {
       $('footer').empty()
       $('.screen').hide()
       $('.start-game').empty()
-      $('.start-game').append('<form class="names-form"><fieldset><legend><h3>Player Names</h3></legend><<input class="start" type="submit" value="Start"></fieldset></form>')
+      $('.start-game').append('<form class="names-form"><fieldset><legend><h3>Player Names</h3></legend><input class="start" type="submit" value="Start"></fieldset></form>')
 
       for (var i = 1; i <= numberOfPlayers; i++) {
         $('fieldset').prepend('<input class="p' + i + 'name" type="text" name="player" placeholder="Player' + i + '" required>')
@@ -80,7 +79,17 @@ $(document).ready(function() {
       //Set!
 
       $('.set').on('click', function() {
+        setPress()
+      })
 
+      $(document).keypress(function(e) {
+        if (e.which == 32) {
+          e.preventDefault()
+          console.log('yay');
+        }
+      });
+
+      function setPress() {
         $('.start-game').empty()
         $('.start-game').append('<div class="whosaw"><h1>Who saw it?</h1></div>')
 
@@ -112,7 +121,7 @@ $(document).ready(function() {
           $('.screen').hide()
           $('.main-menu').hide()
         });
-      })
+      }
     }
 
     //Main menu click event
@@ -130,7 +139,7 @@ $(document).ready(function() {
       highPage()
       for (var i = 0; i < 5; i++) {
         if (showScore[i]) {
-          $('.hscore-container').append('<div>' + showScore[i] + '<div>')
+          $('.hscore-container').append('<div>' + showScore[i][0] + " " + showScore[i][1] + '<div>')
         } else {
           $('.hscore-container').append('<div>-<div>')
         }
@@ -146,7 +155,5 @@ $(document).ready(function() {
     $('.not-flash').hide()
     $('.flash').hide()
 
-
   })()
-
 });
