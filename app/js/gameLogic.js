@@ -133,6 +133,7 @@
     deckGenerator()
     draw(12);
     setLocalNames()
+    scores = [0, 0, 0, 0]
   }
 
   // Check for at least one possible Set

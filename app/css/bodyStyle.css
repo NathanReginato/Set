@@ -12,7 +12,10 @@ footer {
   display: flex;
   bottom: 0;
   justify-content: space-around;
-  background-color: #e7e7e7; }
+  background-color: white;
+  border-top: 1px solid black; }
+  footer h3 {
+    margin: 5px 0; }
 
 .main-menu {
   position: fixed;

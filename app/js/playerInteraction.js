@@ -69,7 +69,7 @@ $(document).ready(function() {
         //Append names to footer
 
         for (var i = 0; i < numberOfPlayers; i++) {
-          $('footer').append('<h4>' + nameArr[i] + ': <span class="p' + (i + 1) + 'score"></span></h4>')
+          $('footer').append('<h3>' + nameArr[i] + ': <span class="p' + (i + 1) + 'score"></span></h3>')
         }
 
         $('.start-game').empty()

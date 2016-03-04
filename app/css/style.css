@@ -22,6 +22,7 @@ svg {
   border: 1px solid black;
   display: flex;
   justify-content: center;
+  background-color: white;
   box-shadow: 10px 10px 10px #989898; }
 
 /* ______               __   _____ __        __
@@ -126,6 +127,17 @@ input {
   height: 100vh;
   width: 100vw; }
 
+body {
+  height: 100vh;
+  background: white;
+  background: -moz-linear-gradient(top, white 0%, white 11%, #fadcfa 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, white), color-stop(11%, white), color-stop(100%, #fadcfa));
+  background: -webkit-linear-gradient(top, white 0%, white 11%, #fadcfa 100%);
+  background: -o-linear-gradient(top, white 0%, white 11%, #fadcfa 100%);
+  background: -ms-linear-gradient(top, white 0%, white 11%, #fadcfa 100%);
+  background: linear-gradient(to bottom, white 0%, white 11%, #fadcfa 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fadcfa', GradientType=0 ); }
+
 header {
   text-align: center;
   display: flex;
@@ -140,7 +152,10 @@ footer {
   display: flex;
   bottom: 0;
   justify-content: space-around;
-  background-color: #e7e7e7; }
+  background-color: white;
+  border-top: 1px solid black; }
+  footer h3 {
+    margin: 5px 0; }
 
 .main-menu {
   position: fixed;
