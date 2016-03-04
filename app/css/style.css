@@ -23,7 +23,12 @@ svg {
   display: flex;
   justify-content: center;
   background-color: white;
+  transition: all 0.5s ease;
   box-shadow: 10px 10px 10px #989898; }
+
+.card:hover {
+  box-shadow: 14px 14px 10px #989898;
+  margin: 0 14px 14px 1px; }
 
 .hatch {
   display: none; }
@@ -53,7 +58,10 @@ svg {
   stroke-width: 5px; }
 
 .selected {
-  box-shadow: inset 0 0 20px #5d8ac6; }
+  box-shadow: inset 0 0 20px #5d8ac6, 10px 10px 10px #989898; }
+
+.selected:hover {
+  box-shadow: inset 0 0 20px #5d8ac6, 14px 14px 10px #989898; }
 
 .start-body {
   position: fixed;
