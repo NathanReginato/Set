@@ -12,36 +12,38 @@
 
   // Make deck and shuffle
 
-  var cards = []
+  var cards = [
+    [1, 1, 1, 1],
+    [2, 2, 2, 2],
+    [0, 0, 0, 0],
+    [0, 1, 1, 1],
+    [1, 1, 1, 0],
+    [1, 1, 0, 1],
+    [0, 2, 2, 0],
+    [1, 2, 2, 0],
+    [2, 2, 2, 0],
+    [0, 2, 2, 1],
+    [2, 2, 2, 1],
+    [1, 2, 2, 1]
+  ]
 
-  // [1, 1, 1, 1],
-  // [2, 2, 2, 2],
-  // [0, 0, 0, 0],
-  // [0, 1, 1, 1],
-  // [1, 1, 1, 0],
-  // [1, 1, 0, 1],
-  // [0, 2, 2, 0],
-  // [1, 2, 2, 0],
-  // [2, 2, 2, 0],
-  // [0, 2, 2, 1],
-  // [2, 2, 2, 1],
-  // [1, 2, 2, 1]
+
 
 
   function deckGenerator() {
-    cards = [];
-    for (var i = 0; i < 3; i++) {
-      for (var j = 0; j < 3; j++) {
-        for (var k = 0; k < 3; k++) {
-          for (var l = 0; l < 3; l++) {
-            cards.push([i, j, k, l])
-          }
-        }
-      }
-    }
-    cards.sort(function() {
-      return 0.5 - Math.random()
-    });
+    // cards = [];
+    // for (var i = 0; i < 3; i++) {
+    //   for (var j = 0; j < 3; j++) {
+    //     for (var k = 0; k < 3; k++) {
+    //       for (var l = 0; l < 3; l++) {
+    //         cards.push([i, j, k, l])
+    //       }
+    //     }
+    //   }
+    // }
+    // cards.sort(function() {
+    //   return 0.5 - Math.random()
+    // });
   }
 
   //Draw cards
@@ -132,7 +134,6 @@
     $('.set').show()
     deckGenerator()
     draw(12);
-    setLocalNames()
     scores = [0, 0, 0, 0]
   }
 
@@ -270,7 +271,7 @@
   function setLocalNames() {
     nameArr = [p1name, p2name, p3name, p4name]
 
-    nameArr.forEach(function(elem) {
+    nameArr.forEach(function(elem, index) {
       loop1: if (elem !== undefined) {
         for (var score in window.localStorage) {
           if (score === elem) {
@@ -278,7 +279,7 @@
             break loop1;
           }
         }
-        localStorage.setItem(elem, 0);
+        localStorage.setItem(elem, scores[index]);
       }
     });
   }
@@ -287,6 +288,7 @@
 
   function isGameOver() {
     if (cards.length === 0 && !possibleSet()) {
+      setLocalNames()
       $('.start-game').empty();
       $('.start-game').append('<div class="end-container"><h1>Game Over!</h1><div class="winner">' + whoWon() + ' Won!</div><button class="share">Share on Facebook</button></div>');
       $('.set').hide();

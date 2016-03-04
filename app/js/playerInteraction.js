@@ -6,18 +6,18 @@ $(document).ready(function() {
     console.log($(window).width());
 
     $('.start-game').empty()
-    $('.start-game').append('<div class="start-body"><a href="#"><div class="new-game">New Game</div></a><a href="#"><div class="tutorial">Tutorial</div></a><a href="#"><div class="highscore">High score</div></a></div>');
+    $('.start-game').append('<div class="start-body"><div class="p-padding"><a href="#"><div class="new-game">New Game</div></a><a href="#"><div class="tutorial">Tutorial</div></a><a href="#"><div class="highscore">High score</div></a></div></div>');
 
     //Get player names
 
     $('.new-game').on('click', function() {
       $('.start-game').empty()
-      $('.start-game').append('<div class="players"></div>')
+      $('.start-game').append('<div class="players"><div class="p-padding"></div></div>')
 
       //Player select
 
       for (var i = 2; i < 5; i++) {
-        $('.players').append('<a href="#"><div class="' + i + 'p">' + i + ' Players</div></a>')
+        $('.p-padding').append('<a href="#"><div class="' + i + 'p">' + i + ' Players</div></a>')
       }
 
 
@@ -45,7 +45,7 @@ $(document).ready(function() {
       $('footer').empty()
       $('.screen').hide()
       $('.start-game').empty()
-      $('.start-game').append('<form class="names-form"><fieldset><legend><h3>Player Names</h3></legend><input class="start" type="submit" value="Start"></fieldset></form>')
+      $('.start-game').append('<form class="names-form"><fieldset><legend><h3>Player Names</h3></legend><<input class="start" type="submit" value="Start"></fieldset></form>')
 
       for (var i = 1; i <= numberOfPlayers; i++) {
         $('fieldset').prepend('<input class="p' + i + 'name" type="text" name="player" placeholder="Player' + i + '" required>')
